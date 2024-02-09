@@ -10,9 +10,12 @@ jobs:
       - name: Get code
         uses: actions/checkout@v3
       - name: Composite Action - Load & cache dependencies
+        id: cache
         uses: ./.github/workflows/actions/cache-deps
         with:
           caching: 'false'
+      - name: validate caching
+        run: echo "${{ steps.cache.outputs.cached-hit }}"
       - name: Lint code
         run: npm run lint
   test:
