@@ -73,6 +73,6 @@ jobs:
           bucket: gh-actions-web-site
           bucket-region: us-west-2
           dist-folder: ./dist
-    - name: s3 website URL
-      run: |
-        echo "LIVE URL: ${{ steps.deploy-s3.outputs.s3-website-url }}"
+      - name: s3 website URL
+        run: |
+          echo "LIVE URL: ${{ steps.deploy-s3.outputs.s3-website-url }}"
