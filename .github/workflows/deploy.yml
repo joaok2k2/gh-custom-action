@@ -4,6 +4,7 @@ on:
     branches:
       - main
 jobs:
+  environment: production
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -63,11 +64,11 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
-        run: echo "Deploying..."
-  information:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get the code
-        uses: actions/checkout@v4
-      - name: Run custom JavaScript Action
-        uses: './.github/workflows/actions/deploy-s3-javascript'
+        env: 
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        uses: .github/workflows/actions/deploy-s3-javascript
+        with:
+          bucket: gh-actions-web-site
+          bucket-region: us-weast-2
+          dist-folder: ./dist
