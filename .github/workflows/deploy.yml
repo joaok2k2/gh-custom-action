@@ -67,7 +67,7 @@ jobs:
         env: 
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        uses: .github/workflows/actions/deploy-s3-javascript
+        uses: ./.github/workflows/actions/deploy-s3-javascript
         with:
           bucket: gh-actions-web-site
           bucket-region: us-weast-2
