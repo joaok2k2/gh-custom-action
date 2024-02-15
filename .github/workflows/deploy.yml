@@ -70,5 +70,5 @@ jobs:
         uses: ./.github/workflows/actions/deploy-s3-javascript
         with:
           bucket: gh-actions-web-site
-          bucket-region: us-weast-2
+          bucket-region: us-west-2
           dist-folder: ./dist
