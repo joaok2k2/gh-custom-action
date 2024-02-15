@@ -4,7 +4,6 @@ on:
     branches:
       - main
 jobs:
-  environment: production
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -52,6 +51,7 @@ jobs:
           path: dist
   deploy:
     needs: build
+    environment: production
     runs-on: ubuntu-latest
     steps:
       - name: Get code
