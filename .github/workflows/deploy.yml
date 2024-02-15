@@ -64,6 +64,7 @@ jobs:
       - name: Output contents
         run: ls
       - name: Deploy site
+        id: deploy-s3
         env: 
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -72,3 +73,5 @@ jobs:
           bucket: gh-actions-web-site
           bucket-region: us-west-2
           dist-folder: ./dist
+    - name: s3 website URL
+      run: echo "${{ steps.deploy-s3.outputs.s3-website-url }}"
