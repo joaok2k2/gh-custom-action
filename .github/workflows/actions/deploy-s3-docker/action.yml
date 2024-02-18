@@ -1,0 +1,21 @@
+name: Deploy S3 website using Docker
+description: Action that uses a docker image to deploy website in s3 using python.
+inputs:
+  bucket:
+    description: Bucket to be deployed
+    required: true
+  bucket-region:
+    description: Region from bucket
+    default: us-east-1
+    required: true
+  dist-folder:
+    description: Files to be deployed
+    required: true
+
+outputs:
+  s3-website-url:
+    description: 'The URL of the deployed website.'
+  
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
