@@ -30,9 +30,9 @@ on:
         required: true
         
 env:
-  WORFLOW_DISPATCH_VERSION: ${{ inputs.version }}  
+  WORKFLOW_DISPATCH_VERSION: ${{ inputs.version }}  
   ENVIRONMENT_CHOICE: ${{ inputs.check_environment }}
-  
+
 jobs:
   lint:
     runs-on: ubuntu-latest
