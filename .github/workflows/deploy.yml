@@ -3,6 +3,36 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Setting version thought UI
+        required: true
+        default: "1.0"
+        type: string
+      environment:
+        description: Choosing the environment thought UI
+        type: environment
+        required: true
+      check_workflow_dispatch:
+        type: boolean
+        default: true
+        description: 'Test boolean'
+        required: false
+      check_environment:
+        description: Test choices environment
+        options:
+        - "Production"
+        - "Release"
+        - "Staging"
+        default: "Production"
+        type: choice
+        required: true
+        
+env:
+  WORFLOW_DISPATCH_VERSION: ${{ inputs.version }}  
+  ENVIRONMENT_CHOICE: ${{ inputs.check_environment }}
+  
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -13,7 +43,7 @@ jobs:
         id: cache
         uses: ./.github/workflows/actions/cache-deps
         with:
-          caching: 'false'
+          caching: "false"
       - name: validate caching
         run: echo "${{ steps.cache.outputs.cached-hit }}"
       - name: Lint code
@@ -65,7 +95,7 @@ jobs:
         run: ls
       - name: Deploy site
         id: deploy-s3
-        env: 
+        env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         uses: ./.github/workflows/actions/deploy-s3-docker

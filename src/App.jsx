@@ -10,6 +10,8 @@ function App() {
         </div>
         <h1>Learn & Master GitHub Actions</h1>
         <h1>Version: 4.0</h1>
+        <h1>Workflow_dispatch_version: {process.env.WORFLOW_DISPATCH_VERSION}</h1>
+        <h1>Environment_choice: {process.env.ENVIRONMENT_CHOICE}</h1>
       </header>
       <MainContent />
     </>
