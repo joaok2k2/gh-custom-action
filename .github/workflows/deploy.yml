@@ -42,9 +42,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: testing repository dispatch
+        if: github.event_name == "repository_dispatch"
         run: |
           echo "${{ github.event.client_payload.testing }}" 
-          echo "${{ github.event_name }}"
       - name: Get code
         uses: actions/checkout@v3
       - name: Composite Action - Load & cache dependencies
