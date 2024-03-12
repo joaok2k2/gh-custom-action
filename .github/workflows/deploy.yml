@@ -28,6 +28,10 @@ on:
         default: "Production"
         type: choice
         required: true
+    
+  repository_dispatch:
+    type:
+    - testing
         
 env:
   WORKFLOW_DISPATCH_VERSION: ${{ inputs.version }}  
