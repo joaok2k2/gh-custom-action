@@ -41,6 +41,10 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - name: testing repository dispatch
+        if: github.event_name == "testing"
+        run: |
+          echo "${{ github.event.client_payload.testing }}" 
       - name: Get code
         uses: actions/checkout@v3
       - name: Composite Action - Load & cache dependencies
