@@ -1,8 +1,8 @@
 name: Stale Pull Requests
 on:
   schedule:
-  - cron: "0 11 * JAN SUN"
-  - cron: "0/2 * * * *"
+  - cron: '0 11 * * *'
+  - cron: '0/2 * * * *'
 jobs:
   stale-job:
     runs-on: ubuntu-latest 
