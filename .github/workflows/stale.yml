@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - name: using stale actions
-        uses:  actions/stale@v9
+        uses: actions/stale@v9
         with:
           stale-issue-message: "This is some testing message."
           days-before-stale: 1
