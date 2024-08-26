@@ -31083,37 +31083,84 @@ module.exports = parseParams
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__nccwpck_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__nccwpck_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__nccwpck_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__nccwpck_require__.o(definition, key) && !__nccwpck_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__nccwpck_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nccwpck_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat */
 /******/ 	
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
-const core = __nccwpck_require__(3370);
-const github = __nccwpck_require__(289);
+"use strict";
+__nccwpck_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(3370);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(289);
+/* harmony import */ var _actions_github__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__nccwpck_require__.n(_actions_github__WEBPACK_IMPORTED_MODULE_1__);
+
+
 
 try {
-  core.debug("Debug Message");
-  core.warning("Warning message");
-  core.error("Error message");
+  const name = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("who_to_greet");
 
-  const name = core.getInput("who_to_greet");
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug("Debug Message");
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.warning("Warning message");
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.error("Error message");
 
   console.log(`Hello ${name}`);
-
   const time = new Date();
-  core.setOutput("time", time.toTimeString());
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("time", time.toTimeString());
 
-  core.exportVariable("HELLO_TIME", time);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.exportVariable("HELLO_TIME", time);
 
-  core.startGroup("Logging github context");
-  console.log(JSON.stringify(github.context, null, 2));
-  core.endGroup();
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.startGroup("Logging github context");
+  console.log(JSON.stringify(_actions_github__WEBPACK_IMPORTED_MODULE_1__.context, null, 2));
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.endGroup();
+  
 } catch (error) {
-  core.setFailed(error.message);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 }
+
 })();
 
 module.exports = __webpack_exports__;
