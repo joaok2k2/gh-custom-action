@@ -31093,7 +31093,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(8114);
 const github = __nccwpck_require__(1683);
-
+const time = new Date();
 
 try {
   const name = core.getInput("who_to_greet");
@@ -31103,13 +31103,13 @@ try {
   core.error("Error message");
 
   console.log(`Hello ${name}`);
-  const time = new Date();
+
   core.setOutput("time", time.toTimeString());
 
   core.exportVariable("HELLO_TIME", time);
 
   core.startGroup("Logging github context");
-  console.log(JSON.stringify(github.context, null, 2));
+  console.log(JSON.stringify(github.context.base_ref, null, 2));
   core.endGroup();
   
 } catch (error) {
