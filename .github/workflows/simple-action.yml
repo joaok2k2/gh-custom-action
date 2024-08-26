@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Simple JS actions
-        id: greet"
+        id: greet
         uses: .github/workflows/actions/custom-js-hello
         with:
           who_to_greet: "Jordan"
