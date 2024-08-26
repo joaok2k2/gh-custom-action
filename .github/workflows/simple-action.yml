@@ -14,7 +14,7 @@ jobs:
 
       - name: Simple JS actions
         id: greet
-        uses: .github/workflows/actions/custom-js-hello
+        uses: ./.github/workflows/actions/custom-js-hello
         with:
           who_to_greet: "Jordan"
           
