@@ -1,0 +1,27 @@
+name: Simple Action
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  simple-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Simple JS actions
+        id: greet"
+        uses: .github/workflows/actions/custom-js-hello
+        with:
+          who_to_greet: "Jordan"
+      
+      - name: Log Greeting time
+        run: |
+          echo "${{ steps.greet.outputs.time }}"
+
+      - name: Log ENV var
+        run: |
+          echo "$HELLO_TIME"
