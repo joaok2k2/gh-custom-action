@@ -31093,7 +31093,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(3370);
 const github = __nccwpck_require__(289);
-const time = new Date();
+
 
 try {
   const name = core.getInput("who_to_greet");
@@ -31103,6 +31103,7 @@ try {
   core.error("Error message");
 
   console.log(`Hello ${name}`);
+  const time = new Date();
   core.setOutput("time", time.toTimeString());
 
   core.exportVariable("HELLO_TIME", time);
