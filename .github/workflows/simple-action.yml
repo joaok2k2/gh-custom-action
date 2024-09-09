@@ -12,9 +12,9 @@ jobs:
       - name: Get code
         uses: actions/checkout@v4
 
-      - name: Simple JS actions
+      - name: Simple Docker action
         id: greet
-        uses: ./.github/workflows/actions/custom-js-hello
+        uses: ./.github/workflows/actions/custom-js-hello-docker
         with:
           who_to_greet: "Jordan"
           
